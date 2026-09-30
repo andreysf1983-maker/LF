@@ -1,0 +1,31 @@
+# ⚒ LEGIONFORGE
+
+**Автономная серверная платформа World of Warcraft: Legion — строго 7.3.5 (Client Build 26124).**
+
+Полный комплект «под ключ»: пропатченное и ребрендированное ядро C++, кастомные игровые системы,
+умные лаунчеры, портативная среда сборки, GUI-менеджер, веб-панель администратора и документация.
+
+## Быстрый старт
+
+```bat
+1. Положите дампы БД в   /sql/base/    (auth.sql, characters.sql, world.sql, hotfixes.sql)
+2. Положите карты в      /server/data/ (cameras, dbc, db2, gt, maps, mmaps, vmaps)
+3. Запустите             START.bat     (среда -> исходники -> БД -> компиляция -> сервер)
+4. Запустите             PANEL.bat     (веб-панель: http://127.0.0.1:3000)
+```
+
+## Состав
+
+| Каталог | Содержимое |
+|---|---|
+| `START.bat` · `PANEL.bat` · `Stop.bat` · `legionforge.bin` | Лаунчеры и триггер панели |
+| `tools/` | Портативные Git, CMake+Ninja, .NET 8, Node.js, MySQL 8, OpenSSL, Boost, 7-Zip + скрипты сборки, GUI-менеджер (`manager_src/`), генератор SQL |
+| `source/` | Исходники ядра **LegionForgeCore** 7.3.5.26124 (ребрендинг выполнен, билд зафиксирован) |
+| `source/src/server/scripts/Custom/` | Все кастомные C++ системы LEGIONFORGE (18 модулей) |
+| `server/bin` · `server/configs` · `server/data` · `server/logs` | Готовый сервер: бинарники, конфиги, карты, логи |
+| `sql/base` · `sql/custom` | Дампы 26124 и единый кастомный SQL (100 боссов, 50 фолиантов, магазин, 320 ников ботов) |
+| `web_panel/` | Исходники веб-панели и конфигуратора (Next.js + PostgreSQL) |
+| `patches/overlay/` | Ключевые пропатченные файлы ядра для чистой переустановки |
+| `docs/` | `README_RU.md` (техническая инструкция) и `PROMO_TEXT.txt` (рекламный текст) |
+
+Подробности — **docs/README_RU.md**.
